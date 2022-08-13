@@ -10,6 +10,8 @@ pkg install git
 
 git clone https://github.com/DANIELBOT14323G/spamcall
 
+cd spamcall
+
 python spamercall.py
 
 
