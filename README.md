@@ -12,6 +12,8 @@ git clone https://github.com/DANIELBOT14323G/spamcall
 
 cd spamcall
 
+pip install requests
+
 python spamercall.py
 
 
